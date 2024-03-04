@@ -1,0 +1,67 @@
+# Quiz application
+
+# This section is for adding questions.
+
+import time
+print("Let's start the quiz...")
+time.sleep(4)
+questions =("Which city is known as Financial Capital of India?:",
+                "How many time zones are there in Russia?: ",
+                "Where is India's Silicon Valley located?: ",
+                "What is the pH value of the human body?: ", 
+                "Name the hottest planet in our solar system?: ")
+                # we can add more questions.
+
+
+# Here is the options to select for these questions
+options =(("A.Bangalore", "B. Mumbai", "C. Delhi", "D. Hyderabad"),
+            ("A. 16", "8.5", "С. 3", "0. 11"),
+            ("A. Bangalore", "B. Hyderabad", "C. Chennai", "D. Delhi"), 
+            ("A. 9.2-9.8", "В. 7.0 -7.8", "С. 6.1-6.3", "D. 5.4-5.6"),
+            ("A. Mercury", "B. Uranus", "C. Venus", "D. Mars"))
+
+#Answer part ,which is already programmed.
+answers=('B','D','A','B','C')
+guesses=[]
+score=0
+question_num=0
+
+for question in questions:
+    print('############################')
+    print(question)
+    for option in options[question_num]:
+        print(option)
+
+    guess=input('select (A,B,C,D):').upper()
+    guesses.append(guess)
+    if guess == answers[question_num]:
+        score+=1
+        print('Correct!!')
+    else:
+        print('INCORRECT!!')
+        print(f"{answers[question_num]} is the correct answer")
+    question_num+=1
+print('Now get ready for your results.')
+time.sleep(5)
+print('----------------------------')
+print('         RESULTS            ')
+print('----------------------------')
+
+print('answers:',end='  ')
+for answer in answers:
+    print(answer,end='  ')
+print()
+
+print('guesses:',end='  ')
+for guess in guesses:
+    print(guess,end='  ')
+print()
+
+
+# The below section is used to calculate the score  and to leave a remark based on score.
+score=int(score/len(questions)*100)
+print(f'Your score is:{score}%')
+if score >= 70:
+    print('Excellent Attempt 😊😊')
+else:
+    print('Not good 😪, try a bit more ')
